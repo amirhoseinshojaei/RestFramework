@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.crypto import get_random_string
+from django.utils import timezone
 # Create your models here.
 
 class Book (models.Model):
@@ -14,3 +15,17 @@ class Book (models.Model):
     code = models.CharField (max_length = 50 , default = get_random_string(length= 50))
 
     user = models.ForeignKey (User , null = True ,on_delete = models.SET_NULL ,)
+
+    
+
+class Writer (models.Model):
+
+    first_name = models.CharField (max_length=32)
+
+    last_name = models.CharField (max_length = 32)
+
+    user = models.ForeignKey(User , on_delete= models.CASCADE)
+
+    publish_at = models.DateTimeField (default= timezone.now() )
+
+    writers = models.ManyToManyField (Book, related_name= 'writers')
