@@ -28,4 +28,4 @@ class Writer (models.Model):
 
     publish_at = models.DateTimeField (default= timezone.now() )
 
-    writers = models.ManyToManyField (Book, related_name= 'writers')
+    book = models.ManyToManyField (Book, related_name= 'writers')
