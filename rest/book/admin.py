@@ -31,18 +31,11 @@ class WritersAdmin (admin.ModelAdmin):
         'publish_at'
     ]
 
-    list_display_links = [
-
-        'first_name',
-        'last_name',
-        'user',
-        'publish_at'
-
-    ]
+   
 
     list_select_related =['user']
 
-    list_editable = ['first_name','last_name','user']
+    
 
     list_filter = [
 
