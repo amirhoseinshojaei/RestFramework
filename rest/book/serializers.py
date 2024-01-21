@@ -14,7 +14,7 @@ class WriterSerializer (serializers.ModelSerializer):
 
             'first_name',
             'last_name',
-            'writer',
+            
         ]
 
 class UserSerializer (serializers.ModelSerializer):
@@ -25,9 +25,9 @@ class UserSerializer (serializers.ModelSerializer):
 
 class BookSerializer (serializers.ModelSerializer):
     
-    writer = WriterSerializer (many = True)
+    writers = WriterSerializer (many = True)
     
     user = UserSerializer (many = False)
     class Meta:
         model = Book
-        fields = ['book_name','publish_at','code','user']
+        fields = ['book_name','publish_at','code','user','writers']
