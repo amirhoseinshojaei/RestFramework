@@ -26,6 +26,6 @@ class Writer (models.Model):
 
     user = models.ForeignKey(User , on_delete= models.CASCADE)
 
-    publish_at = models.DateTimeField (default= timezone.now() )
+    publish_at = models.DateTimeField (default= timezone.now )
 
     book = models.ManyToManyField (Book, related_name= 'writers')
